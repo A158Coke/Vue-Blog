@@ -5,12 +5,13 @@
   </h1>
   <article>
     <div>
-      {{ content }}
+      {{ content.slice(0,100) }}
     </div>
-    <footer v-if="blog.content.length > 100">
+    <footer v-if="content.length > 100">
       <button>read more</button>
     </footer>
   </article>
+  <slot></slot>
 </div>
 
 </template>
