@@ -53,10 +53,14 @@ function addPost() {
   });
   blogForm.value = { ...initialBlogForm };
 }
+
+function handleTitleClick(title){
+  console.log(title);
+}
 </script>
 
 <template>
-  <BlogPost v-for="blog in blogs" :key="blog.id" v-bind="blog"><button>Share</button></BlogPost>
+  <BlogPost @title-click="handleTitleClick" v-for="blog in blogs" :key="blog.id" v-bind="blog"><button>Share</button></BlogPost>
   <h3 v-if="showTotal">Total: {{ total }} blogs</h3>
   <button @click="toggleTotal">{{ showTotal ? "Hide" : "Show" }} Total</button>
   <form @submit.prevent="addPost">
